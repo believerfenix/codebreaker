@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = 'Codebreaker.'
   spec.homepage = 'https://github.com/believerfenix/codebreaker'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 2.7.0'
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.7')
 
   spec.metadata['allowed_push_host'] = ''
 
