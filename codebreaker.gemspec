@@ -31,11 +31,11 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'fasterer'
-  spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'rubocop'
-  spec.add_development_dependency 'rubocop-performance'
-  spec.add_development_dependency 'rubocop-rspec'
-  spec.add_development_dependency 'simplecov'
+  spec.add_development_dependency 'fasterer', '~> 0.9.0'
+  spec.add_development_dependency 'pry', '~> 0.14.1'
+  spec.add_development_dependency 'rspec', '~> 3.10.0'
+  spec.add_development_dependency 'rubocop', '~> 1.22.3'
+  spec.add_development_dependency 'rubocop-performance', '~> 1.12.0'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.6.0'
+  spec.add_development_dependency 'simplecov', '~> 0.21.2'
 end
