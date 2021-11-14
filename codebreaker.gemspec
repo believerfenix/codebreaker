@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ['us55554444us55554444@gmail.com']
 
   spec.summary = 'Codebreaker'
-  spec.description = 'Codebreaker.'
+  spec.description = 'Codebreaker'
   spec.homepage = 'https://github.com/believerfenix/codebreaker'
   spec.license = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.7')
