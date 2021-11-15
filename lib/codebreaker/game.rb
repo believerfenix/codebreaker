@@ -3,6 +3,8 @@
 module Codebreaker
   class Game
     include Validation
+    attr_reader :user, :difficulty, :secret_code, :users_attempts, :users_hints
+
     def initialize(user, difficulty = 'easy')
       check_user_name(user)
       @user = user
@@ -32,6 +34,24 @@ module Codebreaker
 
     def lose?
       @users_attempts.zero?
+    end
+
+    def self.user_statistic
+      store = Storage.new
+      store.data[:user_statistics].sort_by { |stats| [stats.difficulty, stats.attempts, stats.hints] }
+    end
+
+    def save_statistic
+      store = Storage.new
+      store.data[:user_statistics] << current_statistic
+      store.save
+    end
+
+    def current_statistic
+      UserStatistic.new(user: user,
+                        difficulty: difficulty,
+                        attempts: difficulty.attempts - users_attempts,
+                        hints: difficulty.hints - users_hints)
     end
   end
 end
