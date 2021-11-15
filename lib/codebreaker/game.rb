@@ -2,16 +2,18 @@
 
 module Codebreaker
   class Game
+    include Validation
     def initialize(user, difficulty = 'easy')
+      check_user_name(user)
       @user = user
       @secret_code = SecretCode.new.generate_secret_code
       @difficulty = Difficulty.new difficulty.to_sym
       @users_attempts = @difficulty.attempts
       @users_hints = @difficulty.hints
-      @date = DateTime.now
     end
 
     def use_attempts(guess_code)
+      check_guess_code(guess_code)
       return if lose?
 
       @users_attempts -= 1
@@ -19,7 +21,7 @@ module Codebreaker
     end
 
     def use_hint
-      @code_for_hint ||= @secret_code.to_s.chars.sample(@difficulty.hints)
+      @code_for_hint ||= @secret_code.chars.sample(@difficulty.hints)
       @users_hints -= 1
       @code_for_hint.pop
     end

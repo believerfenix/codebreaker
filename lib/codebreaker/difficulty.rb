@@ -2,6 +2,7 @@
 
 module Codebreaker
   class Difficulty
+    include Validation
     DIFFICULTIES = {
       easy: { name: 'easy', attempts: 15, hints: 2 },
       medium: { name: 'medium', attempts: 10, hints: 1 },
@@ -15,6 +16,7 @@ module Codebreaker
     attr_reader :user_difficulty, :attempts, :hints
 
     def initialize(user_difficulty)
+      check_difficulty(user_difficulty)
       @user_difficulty = user_difficulty
       @attempts = DIFFICULTIES[@user_difficulty][:attempts]
       @hints = DIFFICULTIES[@user_difficulty][:hints]
