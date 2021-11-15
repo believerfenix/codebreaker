@@ -12,9 +12,24 @@ module Codebreaker
     end
 
     def use_attempts(guess_code)
+      return if lose?
+
       @users_attempts -= 1
       CheckUserCode.new(@secret_code.to_s, guess_code).check_usercode
-      binding.pry
+    end
+
+    def use_hint
+      @code_for_hint ||= @secret_code.to_s.chars.sample(@difficulty.hints)
+      @users_hints -= 1
+      @code_for_hint.pop
+    end
+
+    def win?(guess_code)
+      @secret_code.to_s == guess_code
+    end
+
+    def lose?
+      @users_attempts.zero?
     end
   end
 end
