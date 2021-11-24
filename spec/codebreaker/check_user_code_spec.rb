@@ -24,7 +24,7 @@ module Codebreaker
           let(:secret_code) { data[0] }
           let(:guess_code) { data[1] }
 
-          it 'return correct result' do
+          it 'receives correct result' do
             expect(checker.check_usercode).to eq(data[2])
           end
         end

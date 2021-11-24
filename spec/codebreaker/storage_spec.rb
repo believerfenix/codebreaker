@@ -17,7 +17,7 @@ module Codebreaker
           stub_const(filename, fixtures_filename)
         end
 
-        it 'can load users statistics' do
+        it 'receives not empty users statistics' do
           expect(store.data[:user_statistics]).not_to be_empty
         end
       end
@@ -36,7 +36,7 @@ module Codebreaker
           Dir.rmdir(initialized_directory_path)
         end
 
-        it 'initialize db and return default data' do
+        it 'receives initialized db with default data' do
           expect(store.data[:user_statistics]).to be_empty
         end
       end
@@ -58,7 +58,7 @@ module Codebreaker
         Dir.rmdir('test_db')
       end
 
-      it 'can save users statistics' do
+      it 'receives that #save users statistics not return error' do
         expect { store.save }.not_to raise_error
       end
     end

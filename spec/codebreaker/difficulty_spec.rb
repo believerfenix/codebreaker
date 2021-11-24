@@ -8,11 +8,11 @@ module Codebreaker
     let(:hell_difficulty) { described_class.new(:hell) }
     let(:equal_difficulty) { described_class.new(:medium) }
 
-    it 'check the number of attempts on this difficulty' do
+    it 'receives the number of attempts on default difficulty' do
       expect(difficulty.attempts).to eq(Difficulty::DIFFICULTIES[level][:attempts])
     end
 
-    it 'check the number of hints on this difficulty' do
+    it 'receives the number of hints on default difficulty' do
       expect(difficulty.hints).to eq(Difficulty::DIFFICULTIES[level][:hints])
     end
 

@@ -3,8 +3,8 @@
 module Codebreaker
   class CheckUserCode
     def initialize(secret_code, guess_code)
-      @code_for_check = secret_code.split('')
-      @guess_code = guess_code.split('')
+      @code_for_check = secret_code.chars
+      @guess_code = guess_code.chars
       @user_result = ''
     end
 
