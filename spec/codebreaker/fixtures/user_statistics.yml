@@ -1,0 +1,11 @@
+---
+:user_statistics:
+- !ruby/object:Codebreaker::UserStatistic
+  user: !ruby/object:Codebreaker::Game
+    name: John Doe
+  difficulty: !ruby/object:Codebreaker::Difficulty
+    attempts: 10
+    hints: 1
+    name: easy
+  attempts: 3
+  hints: 5
