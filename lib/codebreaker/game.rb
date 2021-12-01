@@ -19,7 +19,7 @@ module Codebreaker
       return if lose?
 
       @users_attempts -= 1
-      CheckUserCode.new(@secret_code.to_s, guess_code).check_usercode
+      CheckUserCode.new(@secret_code.to_s, guess_code).call
     end
 
     def use_hint
@@ -36,15 +36,12 @@ module Codebreaker
       @users_attempts.zero?
     end
 
-    def self.user_statistic
-      store = Storage.new
-      store.data[:user_statistics].sort_by { |stats| [stats.difficulty, stats.attempts, stats.hints] }
+    def user_statistic
+      Storage.new.sorted_statistics
     end
 
     def save_statistic
-      store = Storage.new
-      store.data[:user_statistics] << current_statistic
-      store.save
+      Storage.new.add_statistic(current_statistic)
     end
 
     def current_statistic

@@ -13,6 +13,15 @@ module Codebreaker
       store.transaction { @data.each { |key, value| store[key] = value } }
     end
 
+    def add_statistic(statistic)
+      data[:user_statistics] << statistic
+      save
+    end
+
+    def sorted_statistics
+      data[:user_statistics].sort_by { |stats| [stats.difficulty, stats.attempts, stats.hints] }
+    end
+
     private
 
     def db_initialized?
