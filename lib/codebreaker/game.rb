@@ -36,7 +36,7 @@ module Codebreaker
       @users_attempts.zero?
     end
 
-    def self.user_statistic
+    def user_statistic
       Storage.new.sorted_statistics
     end
 
