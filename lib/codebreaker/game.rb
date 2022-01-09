@@ -48,7 +48,8 @@ module Codebreaker
       UserStatistic.new(user: user,
                         difficulty: difficulty,
                         attempts: difficulty.attempts - users_attempts,
-                        hints: difficulty.hints - users_hints)
+                        hints: difficulty.hints - users_hints,
+                        date: DateTime.now)
     end
   end
 end
